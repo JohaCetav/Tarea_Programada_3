@@ -29,10 +29,10 @@ ui <- fluidPage(
     ), 
     mainPanel(
       width = 7,
-      br(),
-      br(),
       h3(div("¡Vamos a planificar su día especial!", style = "color:blue", align = "center")),
       tags$hr(style = "border-color:blue;"), 
+      h3(style = "font-size: 20px;", HTML("<strong>Detalles del evento:</strong>")),
+      br(),
       textOutput("evento_output"), 
       br(),
       tags$hr(),
@@ -43,6 +43,7 @@ ui <- fluidPage(
     )
   )
 )
+
 server <- function(input, output) {
   output$evento_output <- renderText({
     evento <- input$nombre
