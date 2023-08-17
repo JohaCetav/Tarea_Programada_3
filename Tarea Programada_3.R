@@ -43,3 +43,23 @@ ui <- fluidPage(
     )
   )
 )
+server <- function(input, output) {
+  output$evento_output <- renderText({
+    evento <- input$nombre
+    paste("Evento:", evento)
+  })
+  
+  output$tema_output <- renderText({
+    tema <- input$tema
+    paste("Tema del Evento:", tema)
+  })
+  
+  output$invitados_provincia_output <- renderText({
+    tema <- input$tema
+    invitados <- input$invitados
+    provincia <- input$provincia
+    paste("Número de invitados y ubicación: El evento '", tema, "' tendrá ", invitados, " invitados y será llevado a cabo en ", provincia, ".")
+  })
+}
+
+shinyApp(ui, server)
